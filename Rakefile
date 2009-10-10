@@ -12,6 +12,9 @@ begin
     gem.authors = ["Barry Mitchelson"]
     gem.add_development_dependency "rspec"
     gem.add_development_dependency "yard"
+    gem.add_dependency "eventmachine"
+    gem.add_dependency "json"
+    gem.add_dependency "sinatra"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new

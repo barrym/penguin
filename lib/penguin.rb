@@ -1,11 +1,10 @@
 $:.unshift File.dirname(__FILE__)
 
 # standard
-# require 'rubygems'
 require 'fileutils'
 require 'socket'
 
-# dependencies
+# dependencies - remember to add/remove these to the Rakefile
 require 'eventmachine'
 require 'json'
 require 'sinatra/base'
