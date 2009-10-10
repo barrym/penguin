@@ -1,0 +1,51 @@
+<h1>Daemon Monitor</h1>
+
+<div>
+  <h2>Monitor</h2>
+  Running since : <%= @status["started_at"] %><br/>
+  Uptime : <%= @status["uptime"] %>
+</div>
+<div>
+  <h2>Daemons</h2>
+  <table>
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>PID</td>
+        <td>Spawns</td>
+        <td>Status</td>
+        <td>Monitored</td>
+        <td colspan=4>Actions</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @daemons.each do |daemon| %>
+        <tr>
+          <td><%= daemon.d_id %></td>
+          <td><%= daemon.name %></td>
+          <td><%= daemon.pid%></td>
+          <td><%= daemon.spawn_count %></td>
+          <td class="<%= daemon.running? ? "green" : "red" %>"><%= daemon.running? ? "Up" : "Down" %></td>
+          <td class="<%= daemon.monitored? ? "green" : "red" %>"><%= daemon.monitored? ? "Yes" : "No" %></td>
+          <td>
+            <form action="/restart/<%= daemon.d_id %>" method="post">
+              <input type="submit" value="Restart"/>
+            </form>
+          </td>
+          <td>
+            <form action="/start/<%= daemon.d_id %>" method="post">
+              <input type="submit" value="Start" <%= daemon.running? ? 'disabled' : '' %>/>
+            </form>
+          </td>
+          <td>
+            <form action="/stop/<%= daemon.d_id %>" method="post">
+              <input type="submit" value="Stop" <%= daemon.running? ? '' : 'disabled' %>/>
+            </form>
+          </td>
+          <td>unmonitor</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

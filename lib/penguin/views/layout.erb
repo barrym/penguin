@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>Daemon Monitor</title>
+    <style>
+      body {
+        font-family: Helvetica;
+        background-color: #DDEEF6;
+      }
+      div#content {
+        background-color: #ffffff;
+        width: 80%;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 1em 0 1em;
+      }
+
+      h1 {
+        margin: 0;
+      }
+
+      table {
+        font-size: 1em;
+        border: 1px solid #ccc;
+      }
+
+      tr {
+        background-color: #ffffff;
+      }
+
+      thead tr {
+        background-color: #aaaaaa;
+      }
+
+      td {
+        padding: 5px;
+      }
+
+      .red {
+        background-color: red;
+      }
+
+      .green {
+        background-color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+    </div>
+    <div id="content">
+      <%= yield %>
+    </div>
+  </body>
+</html>
