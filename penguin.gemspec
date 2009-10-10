@@ -14,16 +14,18 @@ Gem::Specification.new do |s|
   s.email = %q{barry.mitchelson@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+     "README.markdown"
   ]
   s.files = [
     ".document",
      ".gitignore",
      "LICENSE",
-     "README.rdoc",
+     "README.markdown",
      "Rakefile",
-     "TODO",
+     "TODO.markdown",
      "VERSION",
+     "examples/daemon.rb",
+     "examples/example.rb",
      "lib/penguin.rb",
      "lib/penguin/client.rb",
      "lib/penguin/daemon.rb",
@@ -33,6 +35,7 @@ Gem::Specification.new do |s|
      "lib/penguin/views/index.erb",
      "lib/penguin/views/layout.erb",
      "penguin.gemspec",
+     "spec/monitor_spec.rb",
      "spec/penguin_spec.rb",
      "spec/spec_helper.rb"
   ]
@@ -42,8 +45,11 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Monitors daemons}
   s.test_files = [
-    "spec/penguin_spec.rb",
-     "spec/spec_helper.rb"
+    "spec/monitor_spec.rb",
+     "spec/penguin_spec.rb",
+     "spec/spec_helper.rb",
+     "examples/daemon.rb",
+     "examples/example.rb"
   ]
 
   if s.respond_to? :specification_version then
