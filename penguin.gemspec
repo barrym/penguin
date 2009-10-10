@@ -10,8 +10,10 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Barry Mitchelson"]
   s.date = %q{2009-10-10}
+  s.default_executable = %q{penguin}
   s.description = %q{Penguin monitors and restarts daemons}
   s.email = %q{barry.mitchelson@gmail.com}
+  s.executables = ["penguin"]
   s.extra_rdoc_files = [
     "LICENSE",
      "README.markdown"
@@ -24,6 +26,7 @@ Gem::Specification.new do |s|
      "Rakefile",
      "TODO.markdown",
      "VERSION",
+     "examples/Rakefile",
      "examples/daemon.rb",
      "examples/example.rb",
      "lib/penguin.rb",
