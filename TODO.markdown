@@ -1,3 +1,6 @@
+TODO
+====
+
 * write some fucking specs
 
 * move rake file across
@@ -12,7 +15,7 @@
 * writing pid files when starting daemons
   detecting deleted pid files and rewriting them
   doing somthing with the file pid ?
-* can now store daemon config in db
+* could possibly store daemon config in db
   * adding new daemons on the fly (ie, go up to 10 mt senders from 5 when busy)
   * periodically check config for changes
   * or inject directly in via client

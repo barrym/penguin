@@ -1,9 +1,11 @@
-= penguin
+Penguin
+=======
 
 Description goes here.
 
-== Note on Patches/Pull Requests
- 
+Note on Patches/Pull Requests
+-----------------------------
+
 * Fork the project.
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a
@@ -13,6 +15,31 @@ Description goes here.
    bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
 
-== Copyright
+Usage
+-----
+
+  <code>
+  require 'penguin'
+
+  Penguin.config do |c|
+    c.daemon do |d|
+      d.name = "My daemon"
+      d.loop do
+        puts "Doing stuff"
+        sleep 5
+      end
+    end
+
+    c.daemon do |d|
+      d.name = "Another daemon"
+      d.command = "/path/to/daemon.rb"
+    end
+  end
+
+  Penguin::Monitor.start
+  </code>
+
+Copyright
+------------
 
 Copyright (c) 2009 Barry Mitchelson. See LICENSE for details.
