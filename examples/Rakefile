@@ -1,0 +1,92 @@
+require '../lib/penguin'
+
+def green(text)
+  "\e[32m#{text}\e[0m"
+end
+
+def red(text)
+  "\e[31m#{text}\e[0m"
+end
+
+# I apologise to the programming gods for what is about to happen
+def as_table(data)
+  headers = data.first.keys.sort
+  widths = {}
+  data.each do |e|
+    e.each do |k,v|
+      bigger = k.to_s.size > v.to_s.size ? k.to_s.size : v.to_s.size
+      if widths[k] == nil || widths[k] < bigger
+        widths[k] = bigger
+      end
+    end
+  end
+
+  table = ""
+  # headers
+
+  table << "+"
+  headers.each do |h|
+    v = widths[h]
+    table << "-" * (v + 2) << "+"
+  end
+  table << "\n"
+
+  table << "|"
+  headers.each do |h|
+    table << " " << h << " " * (widths[h] - h.size + 1) << "|"
+  end
+  table << "\n"
+
+  table << "+"
+  headers.each do |h|
+    v = widths[h]
+    table << "-" * (v + 2) << "+"
+  end
+  table << "\n"
+
+  # rows
+  data.each do |e|
+    table << "|"
+    headers.each do |h|
+      if e[h].is_a?(TrueClass) || e[h].is_a?(FalseClass)
+        value = e[h] ? green(e[h].to_s) : red(e[h].to_s)
+      else
+        value = e[h].to_s
+      end
+      table << " " << value << " " * (widths[h] - e[h].to_s.size + 1) << "|"
+    end
+    table << "\n"
+  end
+
+  # footer
+  table << "+"
+  headers.each do |h|
+    v = widths[h]
+    table << "-" * (v + 2) << "+"
+  end
+  table << "\n"
+
+  table
+end
+
+
+namespace :daemons do
+
+  desc "Daemon status"
+  task :status do
+    c = Penguin::Client.new
+    status = c.status
+    puts "Monitor started : #{status["started_at"]}, uptime : #{status["uptime"]}"
+    data = []
+    status["daemons"].each do |key, value|
+      data << {"id" => key}.merge(value)
+    end
+    data = data.sort_by {|e| e["name"]}
+    puts as_table(data)
+  end
+
+  desc "Starts GUI"
+  task :gui do
+    Penguin::GUI.start
+  end
+end
