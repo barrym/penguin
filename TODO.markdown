@@ -4,6 +4,7 @@ TODO
 * write some fucking specs
 
 * move rake file across
+* tidy up config reading between client and monitor
 * if no pid file, searcg process list for named process to see if it really isnt running
 * set pid file location in config
 * rake daemons:list ?
