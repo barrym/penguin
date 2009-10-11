@@ -3,20 +3,18 @@ TODO
 
 * write some fucking specs
 
-* move rake file across
 * tidy up config reading between client and monitor
 * if no pid file, searcg process list for named process to see if it really isnt running
 * set pid file location in config
 * rake daemons:list ?
 * json to yaml - fix newline issues
-* config.before = Proc.new { require 'foo' }
+* config.before = Proc.new { require 'foo' } ?
 * monitor dying does not kill daemons, or should it?
-* check passed pid is one of the monitored daemons
 * daemonizing monitor when starting
 * writing pid files when starting daemons
   detecting deleted pid files and rewriting them
   doing somthing with the file pid ?
-* could possibly store daemon config in db
+* could possibly store daemon config in db (this may be a dumb idea)
   * adding new daemons on the fly (ie, go up to 10 mt senders from 5 when busy)
   * periodically check config for changes
   * or inject directly in via client

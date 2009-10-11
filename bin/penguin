@@ -4,7 +4,7 @@
 # What this binary will do :
 #   --help
 #   --rails : bootstraps a rails app with dummy config and rake tasks possibly adds to config.gem
-#   --no-daemonize defaults to demonizing
+#   --no-daemonize defaults to daemonizing
 #   --config= defaults to ./config/daemons.rb
 #   --pid-directory defaults to ./pids
 #   gui

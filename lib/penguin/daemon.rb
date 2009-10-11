@@ -1,10 +1,11 @@
 module Penguin
+  # This is only used by the client, might need to be changed if Process becomes Daemon
   class Daemon
 
     attr_reader :d_id, :name, :pid, :started_at, :uptime, :spawn_count
 
+    # Remember : this data can become out of date the longer the object is in use
     def initialize(data)
-      # This can go stale - refresh data every time a method is called? hmm
       @d_id = data["d_id"]
       @name = data["name"]
       @pid = data["pid"].to_i

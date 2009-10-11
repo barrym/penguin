@@ -18,6 +18,8 @@ Note on Patches/Pull Requests
 Usage
 -----
 
+### Config
+
   <code>
   require 'penguin'
 
@@ -35,9 +37,39 @@ Usage
       d.command = "/path/to/daemon.rb"
     end
   end
+  </code>
 
+The first daemon passes a block to #loop which will be run as the main loop in the daemon, no daemon file is required.
+The second daemon specifies a daemon file which will be run and monitored.
+
+### Starting the monitor
+
+  <code>
   Penguin::Monitor.start
   </code>
+
+### Using the client
+
+Must (currently) be run from the directory the monitor was started in.
+
+  <code>
+  client = Penguin::Client.new
+
+  status = client.status
+
+  client.unmonitor(status["daemons"].first)
+
+  client.kill(status["daemons"].first)
+
+  client.monitor(status["daemons"].first)
+
+  client.killall
+  </code>
+
+Other stuff
+-----------
+
+Example rake tasks in /examples - starting the gui, formatted daemon status.
 
 Copyright
 ------------

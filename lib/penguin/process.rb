@@ -1,4 +1,5 @@
 module Penguin
+  # This might make more sense as Daemon
   class Process
 
     attr_reader :pid
