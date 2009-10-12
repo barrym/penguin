@@ -1,3 +1,4 @@
+#! /usr/bin/env ruby
 require '../lib/penguin'
 
 def green(text)
