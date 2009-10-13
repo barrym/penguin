@@ -16,6 +16,7 @@ module Penguin
       self.command = block
     end
 
+    # TODO: Should return pid
     def spawn
       if @command.is_a? String
         @pid = fork do
@@ -59,12 +60,16 @@ module Penguin
       ::Process.kill("TERM", self.pid)
     end
 
-    def monitor
+    def monitor!
       self.monitored = true
     end
 
-    def unmonitor
+    def unmonitor!
       self.monitored = false
+    end
+
+    def monitored?
+      self.monitored == true
     end
 
     def debug
@@ -81,6 +86,5 @@ module Penguin
     rescue Errno::ESRCH
       false
     end
-
   end
 end
