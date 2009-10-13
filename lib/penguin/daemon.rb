@@ -6,14 +6,14 @@ module Penguin
 
     # Remember : this data can become out of date the longer the object is in use
     def initialize(data)
-      @d_id = data["d_id"]
-      @name = data["name"]
-      @pid = data["pid"].to_i
-      @started_at = Time.parse(data["started_at"])
-      @uptime = data["uptime"].to_i
+      @d_id        = data["d_id"]
+      @name        = data["name"]
+      @pid         = data["pid"].to_i
+      @started_at  = Time.parse(data["started_at"])
+      @uptime      = data["uptime"].to_i
       @spawn_count = data["spawn_count"].to_i
-      @monitored = data["monitored"]
-      @up = data["up"]
+      @monitored   = data["monitored"]
+      @up          = data["up"]
     end
 
     def monitored?
@@ -23,6 +23,5 @@ module Penguin
     def running?
       @up
     end
-
   end
 end

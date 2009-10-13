@@ -11,7 +11,7 @@ module Penguin
 
     get '/' do
       c = Penguin::Client.new
-      @status = c.status
+      @status  = c.status
       @daemons = c.daemons
       erb :index
     end
