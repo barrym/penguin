@@ -16,15 +16,15 @@ Gem::Specification.new do |s|
   s.executables = ["penguin"]
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.markdown"
+     "README.rdoc"
   ]
   s.files = [
     ".document",
      ".gitignore",
      "LICENSE",
-     "README.markdown",
+     "README.rdoc",
      "Rakefile",
-     "TODO.markdown",
+     "TODO.rdoc",
      "VERSION",
      "examples/Rakefile",
      "examples/daemon.rb",
