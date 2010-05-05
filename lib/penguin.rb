@@ -9,9 +9,6 @@ require 'eventmachine'
 require 'json'
 require 'sinatra/base'
 
-# to delete
-require 'ruby-debug'
-
 # client
 require 'timeout'
 
