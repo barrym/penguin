@@ -39,6 +39,7 @@ module Penguin
             @command.call
           end
           puts "Exited loop!"
+          exit
         end
       else
         raise "What?"
